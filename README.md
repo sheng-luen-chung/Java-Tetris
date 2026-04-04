@@ -1,3 +1,5 @@
+[English](README.md) | [繁體中文](README.zh-TW.md)
+
 # Tetris: Java Edition
 
 A Tetris clone developed in Java using standard AWT and Swing libraries. The project implements standard modern Tetris mechanics including the Super Rotation System (SRS) and features a custom rendering engine for block aesthetics and particle effects.
