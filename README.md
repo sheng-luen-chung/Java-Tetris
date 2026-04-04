@@ -55,11 +55,11 @@ A Tetris clone developed in Java using standard AWT and Swing libraries. The pro
 ## Functionality Showcase
 
 ### Live Gameplay Interface
-![Gameplay Screen](docs/images/image-1.png)
+![Gameplay Screen](docs/images/image-2.png)
 *Showcasing the core gameplay view, including the Ghost Piece dropping accuracy, matrix border gridlines, and dynamic particles.*
 
 ### Main Menu and Mode Selection
-![Menu Interface](docs/images/image-2.png)
+![Menu Interface](docs/images/image-1.png)
 *Demonstrating the graphic-based main menu interface with customized geometric cursors and transparent background animations.*
 
 ### Game Over and Scoring
@@ -126,11 +126,11 @@ A Tetris clone developed in Java using standard AWT and Swing libraries. The pro
 ## 功能展示
 
 ### 實際遊玩介面
-![Gameplay Screen](docs/images/image-1.png)
+![Gameplay Screen](docs/images/image-2.png)
 *展示核心的遊戲畫面，包含精準的落點殘影、底層網格保護罩，以及方塊觸底時的動態物理粒子特效。*
 
 ### 遊戲大廳主選單
-![Menu Interface](docs/images/image-2.png)
+![Menu Interface](docs/images/image-1.png)
 *展現純圖像化與幾何游標構成的三欄式選單，同時背後會有緩慢落下的巨型透明俄羅斯方塊背景。*
 
 ### 結算與高分顯示
