@@ -1,138 +1,138 @@
-[English](#english) | [繁體中文](#繁體中文-traditional-chinese)
+[English](#english) | [繁體中文](#繁體中文)
 
 # English
 
 # Tetris: Java Edition
 
-A Tetris clone developed in Java using standard AWT and Swing libraries. The project implements standard modern Tetris mechanics including the Super Rotation System (SRS) and features a custom rendering engine for block aesthetics and particle effects.
+A Tetris implementation developed in Java utilizing the standard AWT and Swing libraries. The project integrates standard Tetris mechanics, including the Super Rotation System (SRS), alongside a custom rendering implementation for block coloring and particle effects.
 
-## Features
+## System Features
 
-### Gameplay Mechanics
-* **Super Rotation System (SRS)**: Implements standard wall kick data for block rotation near boundaries.
-* **Advanced Scoring**: Includes rule sets for T-Spin detection (3-corner rule) and Combo chaining.
-* **Modern Controls**: Supports Soft Drop, Hard Drop, and Piece Hold functionality.
-* **Ghost Piece**: Displays an indicator at the bottom of the matrix where the piece will land.
-* **Game Modes**: Provides Endless Mode and Level Mode (increasing gravity speed).
+### Core Mechanics
+* **SRS (Super Rotation System)**: Computes wall kick data to permit block rotation near boundaries and internal object collisions.
+* **Scoring Algorithm**: Calculates score multipliers processing T-Spin detection (3-corner verification) and continuous line clear operations (Combo system).
+* **Control Implementation**: Supports continuous descent acceleration (Soft Drop), instant placement (Hard Drop), and block swapping (Piece Hold) functions.
+* **Ghost Piece**: Computes and displays the lowest valid landing coordinate for the active block.
+* **Game Modes**: Operates in Endless Mode and Level Mode (in which descent velocity scales with cleared lines).
 
-### Graphics & Interface
-* **Custom 3D Rendering**: Uses `Graphics2D` and `GradientPaint` to apply bevel lighting and shadow effects to blocks natively.
-* **Particle Effects**: Features physics-based particle spurts on Hard Drop and visual lightning animations on line clears.
-* **UI Layout**: Standard three-column layout (Hold, Matrix, Next/Score) with dynamic background animations.
+### Graphics Rendering
+* **Graphic Rendering System**: Utilizes `Graphics2D` and `GradientPaint` to calculate and render bevel geometry and shading dynamically.
+* **Particle System**: Generates physics-based particle trajectories corresponding to Hard Drop events and line clear animations.
+* **Interface Layout**: Implements a standard three-column grid distribution (Hold data, Matrix, Next Queue/Score data) alongside layered background rendering.
 
-### Audio System
-* **Asynchronous SoundManager**: Handles sound effects (SFX) and background music (BGM) in separate threads to prevent blocking the game loop.
-* **Format Conversion**: Automatically downsamples unsupported 24-bit/32-bit audio files to 16-bit PCM for compatibility with the Java `Clip` API.
-* **State synchronization**: BGM changes seamlessly based on game state (Menu, Playing, Game Over).
+### Audio Processing
+* **Asynchronous Audio Architecture**: Initializes discrete threads to handle Sound Effects (SFX) and Background Music (BGM) playback, preventing UI thread blocking.
+* **Format Conversion Pipeline**: Dynamically down-samples 24-bit/32-bit audio files to 16-bit PCM format for compatibility with the native Java `Clip` wrapper.
+* **State Machine Driven Audio**: Synchronizes BGM transitions with application states (Menu, Gameplay, Game Over).
 
-### Architecture
-* **MVC Pattern**: Separates `GameState` (Model), `GamePanel` (View), and `GameController`/`InputController` (Controller).
-* **Game Loop**: A dedicated thread updates the logic and triggers repaints consistently.
+### Software Architecture
+* **MVC Pattern**: Completely decelerates state memory (`GameState`), visual output (`GamePanel`), and user input routing (`GameController`/`InputController`).
+* **Game Loop Lifecycle**: Executes via a primary execution thread to decouple logical updates and frame repaints.
 
 ## Installation & Usage
 
 ### Prerequisites
 * Java Runtime Environment (JRE) 8 or higher.
 
-### Running the Game
-1. Clone the repository or download the latest release block.
-2. Ensure that `Tetris.jar` and the `sounds/` directory are located in the **same directory**.
-3. Open a terminal or command prompt, navigate to the directory, and run:
+### Initialization
+1. Clone the repository or extract the release archive.
+2. Verify that `Tetris.jar` and the `sounds/` directory reside in the same root path.
+3. Execute the binary via terminal or command prompt:
    ```bash
    java -jar Tetris.jar
    ```
 
-### Controls
-* **Arrow Left / Right**: Move piece
+### Input Mapping
+* **Arrow Left / Right**: Translate horizontal coordinates
 * **Arrow Up / X**: Rotate Clockwise
 * **Z**: Rotate Counter-Clockwise
 * **Arrow Down**: Soft Drop
 * **Space**: Hard Drop
 * **C**: Hold Piece
-* **Escape**: Pause / Resume Game
-* **Enter**: Confirm Selection (Main Menu)
+* **Escape**: Toggle Pause State
+* **Enter**: Confirm Menu Selection
 
-## Functionality Showcase
+## UI Documentation
 
-### Main Menu and Mode Selection
+### Menu Interface
 ![Menu Interface](docs/images/image-1.png)
-*Demonstrating the graphic-based main menu interface with customized geometric cursors and transparent background animations.*
+*Figure 1: Main menu module illustrating the structural layout and background rendering elements.*
 
-### Live Gameplay Interface
-![Gameplay Screen](docs/images/image-2.png)
-*Showcasing the core gameplay view, including the Ghost Piece dropping accuracy, matrix border gridlines, and dynamic particles.*
+### Gameplay Interface
+![Gameplay Interface](docs/images/image-2.png)
+*Figure 2: Active gameplay state demonstrating matrix grid rendering, ghost piece plotting, and particle generation upon block collision.*
 
-### Game Over and Scoring
+### Terminating State
 ![Game Over Screen](docs/images/image-3.png)
-*Presenting the Game Over screen highlighting your total score and high score record updates, while smoothly transitioning the BGM state.*
+*Figure 3: Game Over module summarizing the cumulative score data and high score record persistence.*
 
 ---
 
 <br>
 <br>
 
-# 繁體中文 (Traditional Chinese)
+# 繁體中文
 
 # Tetris: Java Edition
 
-使用標準 AWT 與 Swing 函式庫以純 Java 開發的俄羅斯方塊。本專案實作了現代主流俄羅斯方塊的標準機制（例如超級旋轉系統 SRS），並特別針對方塊美學與粒子特效打造了一套自定義的渲染引擎。
+以純 Java 開發並依賴 AWT 與 Swing 函式庫之俄羅斯方塊專案。本專案實作標準俄羅斯方塊核心機制（包含 SRS 系統），並建構自定義圖形渲染架構處理方塊色彩計算與粒子運算。
 
-## 核心功能
+## 系統功能
 
-### 遊戲機制
-* **超級旋轉系統 (SRS)**：實作了標準的踢牆判定資料，允許方塊在靠近邊界或狹窄空間時進行特殊旋轉。
-* **高階計分法則**：包含 T-Spin（T轉）的三角偵測機制，以及 Combo 連擊的計分加成。
-* **現代化操控**：完整支援 Soft Drop（緩降）、Hard Drop（瞬落）以及 Piece Hold（方塊保留）等主流操作。
-* **殘影預視 (Ghost Piece)**：在盤面底部顯示落點指示器，精準預判方塊著陸位置。
-* **遊戲模式**：提供 Endless Mode (無盡模式) 與 Level Mode (等級挑戰，重力速度將隨等級提升)。
+### 核心機制
+* **SRS 旋轉系統 (Super Rotation System)**：實作踢牆判定 (Wall Kick) 數據矩陣，處理邊界與障礙物附近之方塊旋轉碰撞。
+* **計分演算法**：計算包含 T-Spin（透過 3-corner 驗證）以及 Combo 連續消除之分數乘數。
+* **操控介面**：支援緩降 (Soft Drop)、瞬落 (Hard Drop) 以及方塊保留 (Piece Hold) 等標準輸入操作。
+* **落點預測 (Ghost Piece)**：計算並顯示當前方塊於 Y 軸可到達之最低正確座標位置。
+* **執行模式**：提供無盡模式 (Endless Mode) 與等級模式 (Level Mode，其重力常數隨等級遞增)。
 
-### 視覺渲染與介面
-* **自定義 3D 渲染**：利用 `Graphics2D` 與 `GradientPaint` 原生賦予方塊立體斜角高光與陰影特效。
-* **物理粒子系統**：加入了 Hard Drop 觸發下的物理四散特效，以及消除行數時的閃電視覺動畫。
-* **UI 佈局**：標準的三欄式介面配置（Hold 區、主盤面、Next/分數資訊區），並帶有動態背景。
+### 圖形渲染
+* **圖形渲染引擎**：導入 `Graphics2D` 與 `GradientPaint` 類別，動態計算並繪製方塊之切角高光與陰影數值。
+* **粒子運算系統**：針對 Hard Drop 及消除指令，生成給定物理軌跡之粒子視覺反饋。
+* **使用介面佈局**：建立三欄式網格排版（包含 Hold 區、主矩陣區、Next/分數存放區）及分層背景。
 
-### 音效引擎
-* **非同步 SoundManager**：使用獨立的執行緒分流處理音效 (SFX) 與背景音樂 (BGM) 的播放，絕不阻塞主執行緒。
-* **格式自動相容**：自動將無法受 Java `Clip` 原生支援的 24-bit/32-bit 浮點音源降轉為 16-bit PCM 格式播放。
-* **狀態同步切換**：BGM 會根據遊戲當前所處的狀態（主選單、遊戲中、遊戲結束）完美順滑地切換與過渡。
+### 音訊處理
+* **非同步音訊架構**：建立獨立執行緒處理音效 (SFX) 與背景音樂 (BGM) 之 I/O，以防主執行緒阻塞。
+* **音訊格式轉換管線**：對於不受 Java原生 `Clip` 支援之 24-bit/32-bit 浮點音源，程式會動態將資料降轉為 16-bit PCM 格式。
+* **狀態機驅動音訊**：BGM 將依據軟體之狀態機模式（選單、運行中、終止狀態）進行同步掛載與卸載。
 
-### 系統架構
-* **MVC 架構設計**：嚴格劃分 `GameState` (模型)、`GamePanel` (視圖) 以及 `GameController`/`InputController` (控制器)。
-* **穩定遊戲迴圈**：專屬的獨立執行緒確保邏輯的穩健更新以及畫面的幀數刷新。
+### 軟體架構
+* **MVC 設計模式**：解耦系統狀態記憶 (`GameState`)、視圖渲染 (`GamePanel`) 以及輸入邏輯收發 (`GameController`/`InputController`)。
+* **邏輯迴圈排程**：透過主執行緒分離軟體邏輯更新頻率與畫面幀數刷新率。
 
-## 安裝與遊玩
+## 安裝與起始
 
-### 環境環境限制
-* Java Runtime Environment (JRE) 8 或更高版本。
+### 環境需求
+* Java Runtime Environment (JRE) 8 及其後續版本。
 
-### 啟動遊戲
-1. 複製 (Clone) 本儲存庫，或是直接下載最新的發行版本打包檔。
-2. 請確保 `Tetris.jar` 與 `sounds/` 資料夾位被放置於**同一個目錄**中。
-3. 開啟終端機或是命令提示字元，移動到該目錄並執行以下指令：
+### 執行步驟
+1. 取得專案原始碼，或下載封裝完成之軟體包。
+2. 確保 `Tetris.jar` 與 `sounds/` 目錄存在於相同之相對路徑下。
+3. 於命令列介面執行以下指令：
    ```bash
    java -jar Tetris.jar
    ```
 
-### 預設操作按鍵
-* **左 / 右方向鍵**：移動方塊
-* **上方向鍵 / X**：順時針旋轉
-* **Z**：逆時針旋轉
+### 系統輸入對應
+* **左 / 右方向鍵**：水平對應座標移動
+* **上方向鍵 / X**：順時針矩陣旋轉
+* **Z**：逆時針矩陣旋轉
 * **下方向鍵**：Soft Drop 緩降
 * **空白鍵 (Space)**：Hard Drop 瞬落
-* **C**：Hold 保留方塊
-* **Esc**：暫停 / 恢復遊戲
-* **Enter**：確認選擇（於主選單時）
+* **C**：Hold 方塊保留
+* **Esc**：觸發/解除暫停狀態
+* **Enter**：送出選單指令
 
-## 功能展示
+## UI 介面參照
 
-### 遊戲大廳主選單
+### 選單介面
 ![Menu Interface](docs/images/image-1.png)
-*展現純圖像化與幾何游標構成的三欄式選單，同時背後會有緩慢落下的巨型透明俄羅斯方塊背景。*
+*圖一：主選單模組，展示排版結構與底層背景渲染物件。*
 
-### 實際遊玩介面
-![Gameplay Screen](docs/images/image-2.png)
-*展示核心的遊戲畫面，包含精準的落點殘影、底層網格保護罩，以及方塊觸底時的動態物理粒子特效。*
+### 運行介面
+![Gameplay Interface](docs/images/image-2.png)
+*圖二：運行中狀態，展示矩陣網格渲染、預測落點運算以及方塊碰撞所產生之粒子視覺化結果。*
 
-### 結算與高分顯示
+### 結算介面
 ![Game Over Screen](docs/images/image-3.png)
-*遊戲無憾結算的結果展示頁面，會結算您的計分與歷史紀錄，同時音樂引擎亦會跟隨畫面自然過渡至結算音效。*
+*圖三：系統終止畫面，匯總生命週期內之計分數據與歷史最高分紀錄寫入結果。*
