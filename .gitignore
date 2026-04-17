@@ -8,3 +8,15 @@ bin/
 # OS generated files
 .DS_Store
 Thumbs.db
+
+# 私人文件與紀錄
+chat.md
+reference.txt
+docs/reference.txt
+
+# 遊戲存檔
+highscore_*.txt
+hilevel_*.txt
+
+# 媒體輸出
+tetris/Vidwo_Output/
